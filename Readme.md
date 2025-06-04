@@ -25,7 +25,7 @@ This system enables users to follow each other and receive real-time notificatio
 
 ---
 
-## 🧩 Components Involved
+## 3. 🧩 Components Involved
 
 ### Frontend (React)
 - **App.jsx**: Sets current user, connects socket, renders UI
@@ -41,7 +41,7 @@ This system enables users to follow each other and receive real-time notificatio
   - **Follow**: Stores follower-following relationships
   - **Notification**: Stores notification messages
 
-## 3. 🔄 Flow of Execution
+## 4. 🔄 Flow of Execution
 
 ### Follow Flow
 
@@ -54,14 +54,14 @@ This system enables users to follow each other and receive real-time notificatio
 
 ---
 
-## 4. 📊 Database Schema (MondoDB)
+## 5. 📊 Database Schema (MondoDB)
 
 ### `User`
 ### `Follows`
 ### `Notifications`
 
 
-## 🧰 Tech Stack
+## 6. 🧰 Tech Stack
 
 | Layer         | Technology                  |
 |---------------|-----------------------------|
@@ -77,7 +77,6 @@ This system enables users to follow each other and receive real-time notificatio
 ## ✍️ Author
 
 **Garvit Sharma**  
-AI Fullstack Software Developer Intern Application  
 Insyd — [https://insyd.app/](https://insyd.app/)
 
 

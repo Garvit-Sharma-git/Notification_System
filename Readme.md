@@ -72,12 +72,7 @@ This system enables users to follow each other and receive real-time notificatio
 
 ---
 
-## 📄 Deliverables
 
-- ✅ This system design document (Markdown file / hosted on GitHub)
-- 🔜 POC App with basic working notification system
-
----
 
 ## ✍️ Author
 
@@ -95,32 +90,5 @@ Insyd — [https://insyd.app/](https://insyd.app/)
 
 
 
-flowchart TD
 
-%% FRONTEND
-A[User selects current user] --> B[App.jsx loaded]
-B --> C1[Emit add-user via Socket.io]
-B --> C2[Render UserList and NotificationPanel]
-
-C2 --> D1[UserList Component]
-C2 --> D2[NotificationPanel Component]
-
-D1 --> E1[Click Follow button]
-E1 --> F1[POST /api/follow with followerId and followingId]
-
-D2 --> G1[Receive notification from socket]
-G1 --> G2[Update notifications state]
-
-%% BACKEND
-F1 --> H1[Express /api/follow route]
-H1 --> I1[Check if self-follow or already followed]
-I1 --> J1[Save follow to MongoDB]
-J1 --> K1[Create notification in MongoDB]
-
-K1 --> L1{Is following user online?}
-L1 -->|Yes| M1[Emit notification to socketId]
-L1 -->|No| N1[Skip emit, only save notification]
-
-C1 --> O1[Backend socket.on add-user]
-O1 --> P1[Save socketId to onlineUsers Map]
 

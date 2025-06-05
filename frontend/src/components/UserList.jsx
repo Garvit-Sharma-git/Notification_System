@@ -4,7 +4,7 @@ import axios from 'axios';
 export default function UserList({ users, currentUserId }) {
   const handleFollow = async (targetUserId) => {
     try {
-      const res = await axios.post('http://localhost:5000/api/follow', {
+      const res = await axios.post('https://notification-system-1-rltq.onrender.com/api/follow', {
         followerId: currentUserId,
         followingId: targetUserId
       });

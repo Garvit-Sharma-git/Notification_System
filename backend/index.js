@@ -11,32 +11,38 @@ dotenv.config();
 
 const app = express();
 const server = http.createServer(app);
+
+// ✅ Allow only your frontend domain for security
 const io = new Server(server, {
   cors: {
-    origin: '*',
+    origin: "https://notification-system-eta.vercel.app", // <-- FRONTEND URL
+    methods: ["GET", "POST"],
+    credentials: true,
   },
 });
 
-app.use(cors());
+// ✅ CORS for Express routes too
+app.use(cors({
+  origin: "https://notification-system-eta.vercel.app", // <-- FRONTEND URL
+  credentials: true,
+}));
+
 app.use(express.json());
 
+// Test route
 app.get('/', (req, res) => res.send('Notification POC Running'));
 
-
+// Socket.IO Setup
 setupSocket(io);
 
-
-
+// API Routes
 const followRoutes = require('./routes/follow');
 app.use('/api/follow', followRoutes);
 
-
-// make io accessible in routes
+// Make io accessible in routes if needed
 app.set('io', io);
 
-
-
-// Connect MongoDB
+// MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.error('MongoDB Error:', err));

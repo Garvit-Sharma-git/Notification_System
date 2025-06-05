@@ -1,4 +1,4 @@
-# 🛠️ Insyd Notification System — 
+# 🛠️ Insyd Notification System —
 
 ---
 
@@ -15,25 +15,27 @@ This system enables users to follow each other and receive real-time notificatio
 
 ## 2. 🧩 Tech-Stack
 
-| Component | Description |
-|----------|-------------|
-| **Express Server** | Handles HTTP API for follow actions and notifications |
-| **MongoDB** | Stores users, follow relationships, and notifications |
-| **Socket.IO** | Enables real-time notification push to clients |
-| **In-memory event handler** | Simulates queuing system in POC; handles event-based flow |
-| **React Frontend** *(later)* | Displays notifications, registers for WebSocket updates |
+| Component                    | Description                                               |
+| ---------------------------- | --------------------------------------------------------- |
+| **Express Server**           | Handles HTTP API for follow actions and notifications     |
+| **MongoDB**                  | Stores users, follow relationships, and notifications     |
+| **Socket.IO**                | Enables real-time notification push to clients            |
+| **In-memory event handler**  | Simulates queuing system in POC; handles event-based flow |
+| **React Frontend** _(later)_ | Displays notifications, registers for WebSocket updates   |
 
 ---
 
 ## 3. 🧩 Components Involved
 
 ### Frontend (React)
+
 - **App.jsx**: Sets current user, connects socket, renders UI
 - **UserList.jsx**: Displays other users, lets the user follow them
 - **NotificationPanel.jsx**: Displays received notifications
 - **socket.js**: Manages Socket.IO connection
 
 ### Backend (Node + Express)
+
 - **/api/follow**: REST API to follow a user and create a notification
 - **socket.io handlers**: Maintains online user socket mappings and emits events
 - **Models**:
@@ -57,37 +59,23 @@ This system enables users to follow each other and receive real-time notificatio
 ## 5. 📊 Database Schema (MondoDB)
 
 ### `User`
-### `Follows`
-### `Notifications`
 
+### `Follows`
+
+### `Notifications`
 
 ## 6. 🧰 Tech Stack
 
-| Layer         | Technology                  |
-|---------------|-----------------------------|
-| Frontend      | React                       |
-| Backend       | Node.js + Express           |
-| Database      | MongoDB                     |
-| Real-time     | Socket.IO                   |
+| Layer     | Technology        |
+| --------- | ----------------- |
+| Frontend  | React             |
+| Backend   | Node.js + Express |
+| Database  | MongoDB           |
+| Real-time | Socket.IO         |
 
 ---
-
-
 
 ## ✍️ Author
 
 **Garvit Sharma**  
 Insyd — [https://insyd.app/](https://insyd.app/)
-
-
-
-
-
-
-
-
-
-
-
-
-

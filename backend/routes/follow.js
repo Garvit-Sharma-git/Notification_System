@@ -36,22 +36,21 @@ router.post('/', async (req, res) => {
       return res.status(400).json({ message: 'Missing followerId or followingId' });
     }
 
-    // Avoid self-follow
+
     if (followerId === followingId) {
       return res.status(400).json({ message: 'Cannot follow yourself' });
     }
 
-    // Check if already following
+
     const existingFollow = await Follow.findOne({ follower: followerId, following: followingId });
     if (existingFollow) {
       return res.status(400).json({ message: 'Already following this user' });
     }
 
-    // Save follow
+
     const follow = new Follow({ follower: followerId, following: followingId });
     await follow.save();
 
-    // Create notification
     const notification = new Notification({
       to: followingId,
       message: `User ${followerId} followed you.`,
@@ -59,12 +58,11 @@ router.post('/', async (req, res) => {
     });
     await notification.save();
 
-    // Log online users map and socket ID for debug
-    console.log('🔌 Online Users Map:', global.onlineUsers);
+    
+    console.log(' Online Users Map:', global.onlineUsers);
     const toSocketId = global.onlineUsers.get(followingId);
     console.log(`🔔 Sending notification to socket ID: ${toSocketId} for user: ${followingId}`);
 
-    // Send real-time notification via Socket.io
     if (toSocketId) {
       req.app.get('io').to(toSocketId).emit('notification', notification);
     } else {

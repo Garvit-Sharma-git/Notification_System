@@ -12,11 +12,11 @@ module.exports = function (io) {
     });
 
     socket.on('disconnect', () => {
-      // Optional: remove disconnected socket
+      
       for (const [userId, id] of global.onlineUsers.entries()) {
         if (id === socket.id) {
           global.onlineUsers.delete(userId);
-          console.log(`❌ User ${userId} disconnected`);
+          console.log(`User ${userId} disconnected`);
           break;
         }
       }

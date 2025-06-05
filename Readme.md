@@ -1,8 +1,8 @@
-# 🛠️ Insyd Notification System —
+#  Insyd Notification System —
 
 ---
 
-## 1. 📌 Overview
+## 1.  Overview
 
 This system enables users to follow each other and receive real-time notifications when someone follows them. The architecture uses:
 
@@ -13,7 +13,7 @@ This system enables users to follow each other and receive real-time notificatio
 
 ---
 
-## 2. 🧩 Tech-Stack
+## 2.  Tech-Stack
 
 | Component                    | Description                                               |
 | ---------------------------- | --------------------------------------------------------- |
@@ -25,7 +25,7 @@ This system enables users to follow each other and receive real-time notificatio
 
 ---
 
-## 3. 🧩 Components Involved
+## 3.  Components Involved
 
 ### Frontend (React)
 
@@ -43,7 +43,7 @@ This system enables users to follow each other and receive real-time notificatio
   - **Follow**: Stores follower-following relationships
   - **Notification**: Stores notification messages
 
-## 4. 🔄 Flow of Execution
+## 4.  Flow of Execution
 
 ### Follow Flow
 
@@ -56,15 +56,13 @@ This system enables users to follow each other and receive real-time notificatio
 
 ---
 
-## 5. 📊 Database Schema (MondoDB)
+## 5.  Database Collections (MondoDB)
 
-### `User`
+ `User`
+ `Follows`
+ `Notifications`
 
-### `Follows`
-
-### `Notifications`
-
-## 6. 🧰 Tech Stack
+## 6.  Tech Stack
 
 | Layer     | Technology        |
 | --------- | ----------------- |
@@ -75,7 +73,29 @@ This system enables users to follow each other and receive real-time notificatio
 
 ---
 
-## ✍️ Author
+## 7. AI Implentation Ideas 
+
+-  **Recommendation Notification**:
+ Use collaborative filtering or graph-based recommendations to notify:
+"People who follow Alice also follow Bob."
+Can show a notification like:
+"3 of your followed users just followed Rahul. Follow him too?"
+
+-    **Summarized Daily Digest**:
+Use AI (LLMs) to generate a summary of daily notifications.
+Prompt:
+"Summarize these 15 notifications in 3 sentences in a casual tone for the user Garvit."
+
+-   **User Clustering & Behavior Prediction**:
+ Predict what kind of notifications a user likes.
+Cluster users using K-Means or DBSCAN on:
+Activity frequency
+Interests
+Engagement level
+Then, tailor notification types:
+"User seems highly engaged — increase notifications."
+
+##  Author
 
 **Garvit Sharma**  
 Insyd — [https://insyd.app/](https://insyd.app/)

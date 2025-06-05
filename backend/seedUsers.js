@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const User = require('./models/User'); // Ensure you have this model
+const User = require('./models/User'); 
 
 mongoose.connect(process.env.MONGO_URI)
   .then(async () => {
     console.log('MongoDB Connected...');
 
-    // Only insert users if they don't already exist
+    
     const existing = await User.find({});
     if (existing.length === 0) {
       const user1 = await User.create({ name: 'Alice', email: 'alice@example.com' });

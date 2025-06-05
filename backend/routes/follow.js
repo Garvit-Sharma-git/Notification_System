@@ -32,6 +32,10 @@ router.post('/', async (req, res) => {
   try {
     const { followerId, followingId } = req.body;
 
+     if (!followerId || !followingId) {
+      return res.status(400).json({ message: 'Missing followerId or followingId' });
+    }
+
     // Avoid self-follow
     if (followerId === followingId) {
       return res.status(400).json({ message: 'Cannot follow yourself' });
